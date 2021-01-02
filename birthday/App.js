@@ -1,8 +1,9 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import { StyleSheet, SafeAreaView, Text, StatusBar } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, SafeAreaView, StatusBar} from 'react-native';
 import Auth from './src/components/Auth';
 import firebase from './src/utils/firebase';
 import 'firebase/auth';
+import ListBirthday from './src/components/ListBirthday';
 
 export default function App() {
   const [user, setUser] = useState(undefined);
@@ -19,11 +20,12 @@ export default function App() {
     <>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.background}>
-        {user ? <Text>Estas Logeado</Text> : <Auth />}
+        {user ? <ListBirthday /> : <Auth />}
       </SafeAreaView>
     </>
   );
 }
+
 
 const styles = StyleSheet.create({
   background: {
